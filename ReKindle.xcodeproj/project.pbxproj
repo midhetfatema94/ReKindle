@@ -13,6 +13,11 @@
 		63A944462629AA8800282DC3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63A944442629AA8800282DC3 /* Main.storyboard */; };
 		63A944482629AA8C00282DC3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63A944472629AA8C00282DC3 /* Assets.xcassets */; };
 		63A9444B2629AA8C00282DC3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63A944492629AA8C00282DC3 /* LaunchScreen.storyboard */; };
+		63A944542629C3E600282DC3 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A944532629C3E600282DC3 /* SignupViewController.swift */; };
+		63A944572629C3F500282DC3 /* YourBooksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A944562629C3F500282DC3 /* YourBooksViewController.swift */; };
+		63A9445A2629C41300282DC3 /* AddNewBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A944592629C41300282DC3 /* AddNewBookViewController.swift */; };
+		63A9445D2629C41E00282DC3 /* BookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A9445C2629C41E00282DC3 /* BookDetailViewController.swift */; };
+		63A944602629C42800282DC3 /* BookSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A9445F2629C42800282DC3 /* BookSearchViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +29,11 @@
 		63A944472629AA8C00282DC3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		63A9444A2629AA8C00282DC3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		63A9444C2629AA8C00282DC3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		63A944532629C3E600282DC3 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		63A944562629C3F500282DC3 /* YourBooksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourBooksViewController.swift; sourceTree = "<group>"; };
+		63A944592629C41300282DC3 /* AddNewBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewBookViewController.swift; sourceTree = "<group>"; };
+		63A9445C2629C41E00282DC3 /* BookDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailViewController.swift; sourceTree = "<group>"; };
+		63A9445F2629C42800282DC3 /* BookSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookSearchViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,7 +69,12 @@
 				63A9443E2629AA8800282DC3 /* AppDelegate.swift */,
 				63A944402629AA8800282DC3 /* SceneDelegate.swift */,
 				63A944422629AA8800282DC3 /* ViewController.swift */,
+				63A944532629C3E600282DC3 /* SignupViewController.swift */,
+				63A944562629C3F500282DC3 /* YourBooksViewController.swift */,
 				63A944442629AA8800282DC3 /* Main.storyboard */,
+				63A944592629C41300282DC3 /* AddNewBookViewController.swift */,
+				63A9445C2629C41E00282DC3 /* BookDetailViewController.swift */,
+				63A9445F2629C42800282DC3 /* BookSearchViewController.swift */,
 				63A944472629AA8C00282DC3 /* Assets.xcassets */,
 				63A944492629AA8C00282DC3 /* LaunchScreen.storyboard */,
 				63A9444C2629AA8C00282DC3 /* Info.plist */,
@@ -137,8 +152,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63A944572629C3F500282DC3 /* YourBooksViewController.swift in Sources */,
+				63A944602629C42800282DC3 /* BookSearchViewController.swift in Sources */,
 				63A944432629AA8800282DC3 /* ViewController.swift in Sources */,
+				63A9445A2629C41300282DC3 /* AddNewBookViewController.swift in Sources */,
 				63A9443F2629AA8800282DC3 /* AppDelegate.swift in Sources */,
+				63A9445D2629C41E00282DC3 /* BookDetailViewController.swift in Sources */,
+				63A944542629C3E600282DC3 /* SignupViewController.swift in Sources */,
 				63A944412629AA8800282DC3 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
