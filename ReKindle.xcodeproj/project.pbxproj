@@ -3,10 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		63395B5E262B066200220E0C /* BooksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63395B5D262B066200220E0C /* BooksTableViewCell.swift */; };
+		63395B61262B079600220E0C /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63395B60262B079600220E0C /* Book.swift */; };
+		63395B64262B087300220E0C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63395B63262B087300220E0C /* User.swift */; };
+		63395B79262B147600220E0C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 63395B78262B147600220E0C /* GoogleService-Info.plist */; };
+		63395B7C262B1A1C00220E0C /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63395B7B262B1A1C00220E0C /* WebService.swift */; };
 		63A9443F2629AA8800282DC3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A9443E2629AA8800282DC3 /* AppDelegate.swift */; };
 		63A944412629AA8800282DC3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A944402629AA8800282DC3 /* SceneDelegate.swift */; };
 		63A944432629AA8800282DC3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A944422629AA8800282DC3 /* ViewController.swift */; };
@@ -18,9 +23,15 @@
 		63A9445A2629C41300282DC3 /* AddNewBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A944592629C41300282DC3 /* AddNewBookViewController.swift */; };
 		63A9445D2629C41E00282DC3 /* BookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A9445C2629C41E00282DC3 /* BookDetailViewController.swift */; };
 		63A944602629C42800282DC3 /* BookSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A9445F2629C42800282DC3 /* BookSearchViewController.swift */; };
+		94671B6A0430D6D9345D715D /* Pods_ReKindle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC233A5F3D70616C24FC4C24 /* Pods_ReKindle.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		63395B5D262B066200220E0C /* BooksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksTableViewCell.swift; sourceTree = "<group>"; };
+		63395B60262B079600220E0C /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		63395B63262B087300220E0C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		63395B78262B147600220E0C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		63395B7B262B1A1C00220E0C /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		63A9443B2629AA8800282DC3 /* ReKindle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReKindle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63A9443E2629AA8800282DC3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		63A944402629AA8800282DC3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -34,6 +45,9 @@
 		63A944592629C41300282DC3 /* AddNewBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewBookViewController.swift; sourceTree = "<group>"; };
 		63A9445C2629C41E00282DC3 /* BookDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailViewController.swift; sourceTree = "<group>"; };
 		63A9445F2629C42800282DC3 /* BookSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookSearchViewController.swift; sourceTree = "<group>"; };
+		9166BE4E430F18DADA858DA7 /* Pods-ReKindle.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReKindle.debug.xcconfig"; path = "Target Support Files/Pods-ReKindle/Pods-ReKindle.debug.xcconfig"; sourceTree = "<group>"; };
+		BC233A5F3D70616C24FC4C24 /* Pods_ReKindle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReKindle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA440EEA62B308244652EF2D /* Pods-ReKindle.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReKindle.release.xcconfig"; path = "Target Support Files/Pods-ReKindle/Pods-ReKindle.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94671B6A0430D6D9345D715D /* Pods_ReKindle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,6 +67,8 @@
 			children = (
 				63A9443D2629AA8800282DC3 /* ReKindle */,
 				63A9443C2629AA8800282DC3 /* Products */,
+				CDF5431FDAD12F6D33B2870B /* Pods */,
+				BEA8FDB0A0D5A82E32E27E87 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,15 +88,37 @@
 				63A944422629AA8800282DC3 /* ViewController.swift */,
 				63A944532629C3E600282DC3 /* SignupViewController.swift */,
 				63A944562629C3F500282DC3 /* YourBooksViewController.swift */,
+				63395B5D262B066200220E0C /* BooksTableViewCell.swift */,
+				63395B60262B079600220E0C /* Book.swift */,
+				63395B7B262B1A1C00220E0C /* WebService.swift */,
+				63395B63262B087300220E0C /* User.swift */,
 				63A944442629AA8800282DC3 /* Main.storyboard */,
 				63A944592629C41300282DC3 /* AddNewBookViewController.swift */,
 				63A9445C2629C41E00282DC3 /* BookDetailViewController.swift */,
 				63A9445F2629C42800282DC3 /* BookSearchViewController.swift */,
 				63A944472629AA8C00282DC3 /* Assets.xcassets */,
 				63A944492629AA8C00282DC3 /* LaunchScreen.storyboard */,
+				63395B78262B147600220E0C /* GoogleService-Info.plist */,
 				63A9444C2629AA8C00282DC3 /* Info.plist */,
 			);
 			path = ReKindle;
+			sourceTree = "<group>";
+		};
+		BEA8FDB0A0D5A82E32E27E87 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BC233A5F3D70616C24FC4C24 /* Pods_ReKindle.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CDF5431FDAD12F6D33B2870B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9166BE4E430F18DADA858DA7 /* Pods-ReKindle.debug.xcconfig */,
+				EA440EEA62B308244652EF2D /* Pods-ReKindle.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -89,9 +128,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 63A9444F2629AA8C00282DC3 /* Build configuration list for PBXNativeTarget "ReKindle" */;
 			buildPhases = (
+				1F41C21B7DC9F2E0BF5C9ABF /* [CP] Check Pods Manifest.lock */,
 				63A944372629AA8800282DC3 /* Sources */,
 				63A944382629AA8800282DC3 /* Frameworks */,
 				63A944392629AA8800282DC3 /* Resources */,
+				7B0DB515DC359CB3C5B5BE70 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -140,12 +181,55 @@
 			buildActionMask = 2147483647;
 			files = (
 				63A9444B2629AA8C00282DC3 /* LaunchScreen.storyboard in Resources */,
+				63395B79262B147600220E0C /* GoogleService-Info.plist in Resources */,
 				63A944482629AA8C00282DC3 /* Assets.xcassets in Resources */,
 				63A944462629AA8800282DC3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1F41C21B7DC9F2E0BF5C9ABF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ReKindle-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7B0DB515DC359CB3C5B5BE70 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ReKindle/Pods-ReKindle-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ReKindle/Pods-ReKindle-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ReKindle/Pods-ReKindle-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		63A944372629AA8800282DC3 /* Sources */ = {
@@ -155,11 +239,15 @@
 				63A944572629C3F500282DC3 /* YourBooksViewController.swift in Sources */,
 				63A944602629C42800282DC3 /* BookSearchViewController.swift in Sources */,
 				63A944432629AA8800282DC3 /* ViewController.swift in Sources */,
+				63395B5E262B066200220E0C /* BooksTableViewCell.swift in Sources */,
 				63A9445A2629C41300282DC3 /* AddNewBookViewController.swift in Sources */,
 				63A9443F2629AA8800282DC3 /* AppDelegate.swift in Sources */,
+				63395B7C262B1A1C00220E0C /* WebService.swift in Sources */,
 				63A9445D2629C41E00282DC3 /* BookDetailViewController.swift in Sources */,
 				63A944542629C3E600282DC3 /* SignupViewController.swift in Sources */,
+				63395B61262B079600220E0C /* Book.swift in Sources */,
 				63A944412629AA8800282DC3 /* SceneDelegate.swift in Sources */,
+				63395B64262B087300220E0C /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,6 +391,7 @@
 		};
 		63A944502629AA8C00282DC3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9166BE4E430F18DADA858DA7 /* Pods-ReKindle.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -322,6 +411,7 @@
 		};
 		63A944512629AA8C00282DC3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EA440EEA62B308244652EF2D /* Pods-ReKindle.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

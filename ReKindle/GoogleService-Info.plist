@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>55326797435-dmqihr8hl2silm7mufmcev4qirk9vqsc.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.55326797435-dmqihr8hl2silm7mufmcev4qirk9vqsc</string>
+	<key>API_KEY</key>
+	<string>AIzaSyA1FSVsfqGnFrBP6_GMXh7yAdGIvPTDvmg</string>
+	<key>GCM_SENDER_ID</key>
+	<string>55326797435</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.personal.ReKindle</string>
+	<key>PROJECT_ID</key>
+	<string>rekindle-fbe0d</string>
+	<key>STORAGE_BUCKET</key>
+	<string>rekindle-fbe0d.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:55326797435:ios:b337dffacd511328bbbcde</string>
+</dict>
+</plist>
