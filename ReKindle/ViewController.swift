@@ -13,14 +13,32 @@ class ViewController: UIViewController {
     @IBOutlet weak var usernameTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
     
-    @IBAction func gotoSignup(_ sender: Any) {
+    @IBAction func gotoSignup(_ sender: UIButton) {
+    }
+    
+    @IBAction func loginUser(_ sender: UIButton) {
+        WebService.shared.loginUser(username: usernameTF.text ?? "", password: passwordTF.text ?? "") {[weak self] (response) in
+            DispatchQueue.main.async {
+                if let response = response as? [String: Any] {
+                    if let booksVC = self?.storyboard?.instantiateViewController(identifier: "YourBooksViewController") as? YourBooksViewController {
+                        booksVC.userId = response["userId"] as? String ?? ""
+                        self?.navigationController?.pushViewController(booksVC, animated: true)
+                    }
+                } else {
+                    print("Failed to login user")
+                }
+            }
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        configureUI()
     }
-
-
+    
+    func configureUI() {
+        background.layer.opacity = 0.5
+    }
 }
 

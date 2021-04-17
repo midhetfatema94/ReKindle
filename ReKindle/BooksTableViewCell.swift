@@ -23,7 +23,9 @@ class BooksTableViewCell: UITableViewCell {
         super.prepareForReuse()
     }
     
-    func configure() {
-        
+    func configure(data: Book) {
+        bookTitle.text = data.title
+        bookAuthor.text = data.author
+        bookEdition.text = data.edition
     }
 }

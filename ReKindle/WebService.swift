@@ -11,9 +11,9 @@ import Firebase
 class WebService {
     static let shared = WebService()
     
-    let db = Firestore.firestore()
+    private let db = Firestore.firestore()
     
-    func loginUser(details: [String: Any], completionHandler: @escaping ((Any?) -> Void)) {
+    func loginUser(username: String, password: String, completionHandler: @escaping ((Any?) -> Void)) {
         db.collection("users").getDocuments(completion: {(querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
@@ -22,11 +22,15 @@ class WebService {
                 if let snapshot = querySnapshot {
                     let loginUserSnapshot = snapshot.documents.filter {
                         let userData = $0.data()
-                        return userData["email"] as? String == details["email"] as? String
+                        return userData["username"] as? String == username
                     }.first
                     if var loginUserDetails = loginUserSnapshot?.data() {
-                        loginUserDetails["userId"] = loginUserSnapshot?.documentID ?? ""
-                        completionHandler(loginUserDetails)
+                        if loginUserDetails["password"] as? String == password {
+                            loginUserDetails["userId"] = loginUserSnapshot?.documentID ?? ""
+                            completionHandler(loginUserDetails)
+                        } else {
+                            completionHandler("Password is incorrect")
+                        }
                     } else {
                         completionHandler("Could not find user")
                     }
@@ -35,40 +39,21 @@ class WebService {
         })
     }
     
-    func signUp(userDetails: [String: Any], carDetails: [String: Any], completionHandler: @escaping ((String?, Bool) -> Void)) {
-        checkUser(fieldName: "email", fieldValue: userDetails["email"] as? String ?? "", completionHandler: {(userExists) in
+    func signUp(userDetails: [String: Any], completionHandler: @escaping ((String?, Bool) -> Void)) {
+        checkUser(fieldName: "username", fieldValue: userDetails["username"] as? String ?? "", completionHandler: {(userExists) in
             if !(userExists ?? true) {
-                self.checkUser(fieldName: "username", fieldValue: userDetails["username"] as? String ?? "", completionHandler: {(exists) in
-                    if !(exists ?? true) {
-                        var ref: DocumentReference? = nil
-                        ref = self.db.collection("users").addDocument(data: userDetails) {(error) in
-                            if let err = error {
-                                print("Error adding document: \(err)")
-                                completionHandler(err.localizedDescription, false)
-                            } else {
-                                print("Document added with ID: \(ref?.documentID ?? "")")
-                                completionHandler(ref?.documentID ?? "", true)
-                                self.setPrimaryCarDetails(userId: ref?.documentID ?? "", details: carDetails)
-                            }
-                        }
+                var ref: DocumentReference? = nil
+                ref = self.db.collection("users").addDocument(data: userDetails) {(error) in
+                    if let err = error {
+                        print("Error adding document: \(err)")
+                        completionHandler(err.localizedDescription, false)
                     } else {
-                        completionHandler("Username is not unique", false)
+                        print("Document added with ID: \(ref?.documentID ?? "")")
+                        completionHandler(ref?.documentID ?? "", true)
                     }
-                })
+                }
             } else {
-                completionHandler("Email id is not unique", false)
-            }
-        })
-    }
-    
-    func setPrimaryCarDetails(userId: String, details: [String: Any]) {
-        let userDocRef = db.collection("users").document(userId)
-        var carDocRef: DocumentReference? = nil
-        carDocRef = userDocRef.collection("cars").addDocument(data: details, completion: {(err) in
-            if let error = err {
-                print("Error adding document: \(error.localizedDescription)")
-            } else {
-                print("Document added with ID: \(carDocRef?.documentID ?? "")")
+                completionHandler("Username is not unique", false)
             }
         })
     }
@@ -119,10 +104,6 @@ class WebService {
                 completionHandler(err.localizedDescription)
             }
         })
-    }
-    
-    func forgotPassword() {
-        
     }
     
     func newWinchRequest(orderData: [String: Any], completionHandler: @escaping ((Any?) -> Void)) {
@@ -233,47 +214,28 @@ class WebService {
         })
     }
     
-//    func getOrderRequests(isWinch: Bool, userIdField: String, userId: String, completion: @escaping (([RequestViewModel]?) -> Void)) {
-//        var orderQuery: Query!
-//        if isWinch {
-//            orderQuery = db.collection("orders")
-//        } else {
-//            orderQuery = db.collection("orders").whereField(userIdField, isEqualTo: userId)
-//        }
-//        orderQuery.getDocuments(completion: {(querySnapshot, err) in
-//            if let err = err {
-//                print("Error getting documents: \(err)")
-//                completion(nil)
-//            } else {
-//                if let snapshot = querySnapshot {
-//                    var allOrders: [RequestViewModel] = []
-//                    for document in snapshot.documents {
-//                        print("\(document.documentID) => \(document.data())")
-//                        var data = document.data()
-//                        data["orderId"] = document.documentID
-//                        let declineIds = data["declinedBy"] as? [String] ?? []
-//                        if isWinch {
-//                            if let winchId = data[userIdField] as? String {
-//                                if (winchId == userId || winchId.isEmpty) &&
-//                                    !declineIds.contains(userId) {
-//                                    allOrders.append(self.appendOrders(details: data))
-//                                }
-//                            }
-//                        } else {
-//                            allOrders.append(self.appendOrders(details: data))
-//                        }
-//                    }
-//                    completion(allOrders)
-//                } else {
-//                    completion(nil)
-//                }
-//            }
-//        })
-//    }
-    
-//    func appendOrders(details: [String: Any]) -> RequestViewModel {
-//        let orderData = RequestOrder(details: details)
-//        let orderModel = RequestViewModel(data: orderData)
-//        return orderModel
-//    }
+    func getUserBooks(userId: String, completion: @escaping (([Book]?) -> Void)) {
+        
+        let bookQuery = db.collection("books").whereField("ownerId", isEqualTo: userId)
+        
+        bookQuery.getDocuments(completion: {(querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+                completion(nil)
+            } else {
+                if let snapshot = querySnapshot {
+                    var allBooks: [Book] = []
+                    for document in snapshot.documents {
+                        print("\(document.documentID) => \(document.data())")
+                        var data = document.data()
+                        data["id"] = document.documentID
+                        allBooks.append(Book(details: data))
+                    }
+                    completion(allBooks)
+                } else {
+                    completion(nil)
+                }
+            }
+        })
+    }
 }
