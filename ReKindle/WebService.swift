@@ -92,13 +92,12 @@ class WebService {
         })
     }
     
-    func getCarDetails(userId: String, completionHandler: @escaping ((Any?) -> Void)) {
+    func getUserDetails(userId: String, completionHandler: @escaping ((Any?) -> Void)) {
         let userDocRef = db.collection("users").document(userId)
-        let carDocRef = userDocRef.collection("cars")
-        carDocRef.getDocuments(completion: {(querySnapshot, err) in
-            if let snapshot = querySnapshot, let primaryCarDetails = snapshot.documents.first {
-                print("Car details: \(primaryCarDetails.data())")
-                completionHandler(primaryCarDetails.data())
+        userDocRef.getDocument(completion: {(querySnapshot, err) in
+            if let data = querySnapshot?.data() {
+                print("User details: ", data)
+                completionHandler(data)
             } else if let err = err {
                 print("Error getting documents: \(err)")
                 completionHandler(err.localizedDescription)
@@ -106,9 +105,9 @@ class WebService {
         })
     }
     
-    func newWinchRequest(orderData: [String: Any], completionHandler: @escaping ((Any?) -> Void)) {
-        let orderDocRef = db.collection("orders")
-        orderDocRef.addDocument(data: orderData, completion: {(err) in
+    func newBook(bookData: [String: Any], completionHandler: @escaping ((Any?) -> Void)) {
+        let bookDocRef = db.collection("books")
+        bookDocRef.addDocument(data: bookData, completion: {(err) in
             if let err = err {
                 print("Error getting documents: \(err)")
                 completionHandler(err)

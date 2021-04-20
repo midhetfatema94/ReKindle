@@ -7,12 +7,24 @@
 
 import UIKit
 
+protocol DataUpdateProtocol: class {
+    func reloadTable()
+}
+
 class YourBooksViewController: UIViewController {
 
     @IBOutlet weak var booksTable: UITableView!
     
     var userId: String = ""
     var myBooks = [Book]()
+    
+    @IBAction func addNewBooks(_ sender: UIBarButtonItem) {
+        if let booksVC = self.storyboard?.instantiateViewController(identifier: "AddNewBookViewController") as? AddNewBookViewController {
+            booksVC.dataDelegate = self
+            booksVC.userId = self.userId
+            self.navigationController?.pushViewController(booksVC, animated: true)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +64,16 @@ extension YourBooksViewController: UITableViewDataSource {
 
 extension YourBooksViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //On selection show detailed page of book
+        if let booksVC = self.storyboard?.instantiateViewController(identifier: "BookDetailViewController") as? BookDetailViewController {
+            booksVC.book = myBooks[indexPath.row]
+            booksVC.userId = self.userId
+            self.navigationController?.pushViewController(booksVC, animated: true)
+        }
+    }
+}
+
+extension YourBooksViewController: DataUpdateProtocol {
+    func reloadTable() {
+        loadBooks()
     }
 }

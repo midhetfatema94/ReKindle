@@ -14,10 +14,11 @@ class User {
         var location: String
         var displayName: String?
     
-    init() {
-        id = ""
-        username = ""
-        contact = ""
-        location = ""
+    init(details: [String: Any]) {
+        id = details["id"] as? String ?? ""
+        username = details["username"] as? String ?? ""
+        contact = details["contactInfo"] as? String ?? ""
+        location = details["location"] as? String ?? ""
+        displayName = details["displayName"] as? String
     }
 }
