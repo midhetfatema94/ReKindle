@@ -237,4 +237,27 @@ class WebService {
             }
         })
     }
+    
+    func getAllBooks(userId: String, completion: @escaping (([Book]?) -> Void)) {
+        let bookQuery = db.collection("books").whereField("ownerId", isNotEqualTo: userId)
+        bookQuery.getDocuments(completion: {(querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+                completion(nil)
+            } else {
+                if let snapshot = querySnapshot {
+                    var allBooks: [Book] = []
+                    for document in snapshot.documents {
+                        print("\(document.documentID) => \(document.data())")
+                        var data = document.data()
+                        data["id"] = document.documentID
+                        allBooks.append(Book(details: data))
+                    }
+                    completion(allBooks)
+                } else {
+                    completion(nil)
+                }
+            }
+        })
+    }
 }

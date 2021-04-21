@@ -14,6 +14,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var passwordTF: UITextField!
     
     @IBAction func gotoSignup(_ sender: UIButton) {
+        if let booksVC = self.storyboard?.instantiateViewController(identifier: "SignupViewController") as? SignupViewController {
+            self.navigationController?.pushViewController(booksVC, animated: true)
+        }
     }
     
     @IBAction func loginUser(_ sender: UIButton) {

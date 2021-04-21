@@ -8,22 +8,53 @@
 import UIKit
 
 class BookSearchViewController: UIViewController {
-
+    
+    @IBOutlet weak var booksTable: UITableView!
+    
+    var myBooks = [Book]()
+    var userId: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        booksTable.tableFooterView = UIView()
+        loadBooks()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func loadBooks()  {
+        WebService.shared.getAllBooks(userId: userId, completion: {[weak self] (response) in
+            DispatchQueue.main.async {
+                if let result = response {
+                    self?.myBooks = result
+                    self?.booksTable.reloadData()
+                } else {
+                    print("Failed to receive book details")
+                }
+            }
+        })
     }
-    */
+}
 
+extension BookSearchViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return myBooks.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let bookCell = tableView.dequeueReusableCell(withIdentifier: "cell") as? BooksTableViewCell {
+            bookCell.configure(data: myBooks[indexPath.row])
+            bookCell.selectionStyle = .none
+            return bookCell
+        }
+        return UITableViewCell()
+    }
+}
+
+extension BookSearchViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let booksVC = self.storyboard?.instantiateViewController(identifier: "BookDetailViewController") as? BookDetailViewController {
+            booksVC.book = myBooks[indexPath.row]
+            self.navigationController?.pushViewController(booksVC, animated: true)
+        }
+    }
 }

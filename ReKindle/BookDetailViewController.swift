@@ -20,7 +20,6 @@ class BookDetailViewController: UIViewController {
     
     var book: Book!
     var owner: User!
-    var userId: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,9 +36,9 @@ class BookDetailViewController: UIViewController {
     }
     
     func configureOwner() {
-        ownerName.text = owner.displayName
-        ownerContact.text = owner.contact
-        ownerLocation.text = owner.location
+        ownerName.text = "Name: \(owner.displayName ?? owner.username)"
+        ownerContact.text = "Contact me at: \(owner.contact)"
+        ownerLocation.text = "Pick up the book from: \(owner.location)"
         
         loader.stopAnimating()
         ownerName.isHidden = false
@@ -48,10 +47,10 @@ class BookDetailViewController: UIViewController {
     }
     
     func getUser() {
-        WebService.shared.getUserDetails(userId: userId) {[weak self] (response) in
+        WebService.shared.getUserDetails(userId: book.ownerId) {[weak self] (response) in
             DispatchQueue.main.async {
                 if var response = response as? [String: Any] {
-                    response["id"] = self?.userId ?? ""
+                    response["id"] = self?.book.ownerId ?? ""
                     self?.owner = User(details: response)
                     self?.configureOwner()
                 } else {

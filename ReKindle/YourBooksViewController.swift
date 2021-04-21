@@ -26,6 +26,13 @@ class YourBooksViewController: UIViewController {
         }
     }
     
+    @IBAction func searchBooks(_ sender: UIBarButtonItem) {
+        if let booksVC = self.storyboard?.instantiateViewController(identifier: "BookSearchViewController") as? BookSearchViewController {
+            booksVC.userId = self.userId
+            self.navigationController?.pushViewController(booksVC, animated: true)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -66,7 +73,6 @@ extension YourBooksViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let booksVC = self.storyboard?.instantiateViewController(identifier: "BookDetailViewController") as? BookDetailViewController {
             booksVC.book = myBooks[indexPath.row]
-            booksVC.userId = self.userId
             self.navigationController?.pushViewController(booksVC, animated: true)
         }
     }
